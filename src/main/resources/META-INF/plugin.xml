@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<idea-plugin>
+    <id>com.fina.valuetojson</id>
+    <name>Value To JSON</name>
+    <vendor email="53124742@qq.com">Fina</vendor>
+
+    <description><![CDATA[
+        This is a plugin that can turn variables into JSON when debugging code.<br>
+        Provides simple folding and unfolding for searching. <br>
+</p>
+</p>
+        这是一个在调试代码时候可以把变量变成json的插件。<br>
+        提供了简单的折叠展开，搜索。<br>
+</p>
+</p>
+        However, please note that the expression cannot be converted.<br>
+        And even if the attribute in the variable is null, it will not be converted <br>
+</p>
+</p>
+        但是遗憾的是，转换不了表达式。<br>
+        以及变量里的属性是null的也不会被转换出来。<br>
+    ]]></description>
+    <version>1.0.0</version>
+
+    <!-- 添加依赖声明 -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.xdebugger</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- 注册服务或其他扩展点 -->
+    </extensions>
+
+    <actions>
+        <action id="ValueToJson.Convert"
+                class="com.fina.valuetojson.action.ValueToJsonAction"
+                text="Convert to JSON"
+                description="Convert variable value to formatted JSON">
+            <add-to-group group-id="EditorPopupMenuDebug" anchor="after" relative-to-action="EvaluateExpression"/>
+            <add-to-group group-id="XDebugger.ValueGroup" anchor="after" relative-to-action="EvaluateExpression"/>
+        </action>
+    </actions>
+
+    <!-- 更新 IDE 版本兼容性声明 -->
+    <idea-version since-build="231" until-build="241.*"/>
+</idea-plugin> 
