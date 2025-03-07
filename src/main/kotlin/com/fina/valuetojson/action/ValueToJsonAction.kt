@@ -115,8 +115,8 @@ class ValueToJsonAction : AnAction() {
                         null as com.sun.jdi.Value?
                     )
                     
-                    // 创建表达式 - 使用 fastjson 转换为 JSON
-                    val jsonExpression = "com.alibaba.fastjson.JSON.toJSONString(${selectedText})"
+                    // 创建表达式 - 使用 fastjson 转换为 JSON，添加SerializerFeature.WriteMapNullValue参数以包含null值
+                    val jsonExpression = "com.alibaba.fastjson.JSON.toJSONString(${selectedText}, com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue)"
                     val textWithImports = TextWithImportsImpl(
                         CodeFragmentKind.EXPRESSION,
                         jsonExpression
@@ -159,7 +159,7 @@ class ValueToJsonAction : AnAction() {
                             }
 
                             // 使用 Gson 格式化 JSON
-        val gson = GsonBuilder().setPrettyPrinting().create()
+        val gson = GsonBuilder().setPrettyPrinting().serializeNulls().create()
                             try {
                                 val jsonElement = gson.fromJson(jsonStr, JsonElement::class.java)
                                 jsonStr = gson.toJson(jsonElement)
@@ -545,4 +545,4 @@ class ValueToJsonAction : AnAction() {
             )
         }
     }
-} 
+}

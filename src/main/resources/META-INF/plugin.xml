@@ -13,14 +13,35 @@
         提供了简单的折叠展开，搜索。<br>
 </p>
 </p>
-        However, please note that the expression cannot be converted.<br>
-        And even if the attribute in the variable is null, it will not be converted <br>
+        Unfortunately, the expression cannot be converted.<br>
 </p>
 </p>
         但是遗憾的是，转换不了表达式。<br>
-        以及变量里的属性是null的也不会被转换出来。<br>
     ]]></description>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
+
+    <change-notes><![CDATA[
+        <h3>1.0.1</h3>
+        <ul>
+            <li>支持查看变量里是null的属性了</li>
+        </ul>
+        <br>
+        <h3>1.0.0</h3>
+        <ul>
+            <li>首次发布</li>
+        </ul>
+
+        <br>
+        <h3>1.0.1 (English)</h3>
+        <ul>
+            <li>Supports viewing null attributes in variables</li>
+        </ul>
+        <br>
+        <h3>1.0.0 (English)</h3>
+        <ul>
+            <li>Initial release</li>
+        </ul>
+    ]]></change-notes>
 
     <!-- 添加依赖声明 -->
     <depends>com.intellij.modules.platform</depends>
